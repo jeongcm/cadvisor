@@ -33,7 +33,8 @@
 - [ ] 하단의 "Create merge request"를 통해 브랜치와 MR(Merge request) 생성
   + 특정 버전에서만 발생하는 버그라면 발견된 버전의 브랜치(예: `1-0-stable`)로부터 생성
   + 문제를 해결하고 생성된 MR(을)를 버그(Bug) 양식에 맞춰 작성한 후 병합 요청
-  + 병합이 완료되면 이슈를 닫음  
+- [ ] 병합이 완료되면 이슈를 닫음  
+  `/unlabel ~"Doing"`  
   `/close`
 
 /label ~"Bug"

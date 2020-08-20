@@ -23,7 +23,8 @@
 - [ ] 하단의 "Create merge request"를 통해 브랜치와 MR(Merge request) 생성
   + [브랜치 관리 규칙](CONTRIBUTING.md) 참조
   + 기능을 구현하고 생성된 MR(을)를 개발(Feature) 양식에 맞춰 작성한 후 병합 요청
-  + 병합이 완료되면 이슈를 닫음  
+- [ ] 병합이 완료되면 이슈를 닫음  
+  `/unlabel ~"Doing"`  
   `/close`
 
 /label ~"Feature"
