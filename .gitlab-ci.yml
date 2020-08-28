@@ -3,7 +3,6 @@ image: registry.datacommand.co.kr/docker:dind
 variables:
   DOCKER_REGISTRY: registry.datacommand.co.kr
   IMAGE_NAME: cdm-cloud-cadvisor
-  GIT_SUBMODULE_STRATEGY: recursive
 
 stages:
   - test
