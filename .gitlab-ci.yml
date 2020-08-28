@@ -15,7 +15,6 @@ unit:
     - docker build -t $DOCKER_REGISTRY/$IMAGE_NAME .
     - docker image ls | grep $IMAGE_NAME
     - docker image rm $DOCKER_REGISTRY/$IMAGE_NAME
-    - docker image ls | grep $IMAGE_NAME
   tags:
     - docker
   only:
