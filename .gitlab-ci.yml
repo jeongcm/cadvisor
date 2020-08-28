@@ -1,4 +1,4 @@
-image: registry.datacommand.co.kr/docker:dind
+image: registry.datacommand.co.kr/docker:latest
 
 variables:
   DOCKER_REGISTRY: registry.datacommand.co.kr
