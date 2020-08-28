@@ -1,0 +1,47 @@
+image: registry.datacommand.co.kr/docker:dind
+
+variables:
+  DOCKER_REGISTRY: registry.datacommand.co.kr
+  IMAGE_NAME: cdm-cloud-cadvisor
+  GIT_SUBMODULE_STRATEGY: recursive
+
+stages:
+  - test
+  - deploy
+
+unit:
+  stage: test
+  script:
+    - echo $DOCKER_REGISTRY $IMAGE_NAME $PWD
+    - docker build -t $DOCKER_REGISTRY/$IMAGE_NAME .
+    - docker image ls | grep $IMAGE_NAME
+    - docker image rm $DOCKER_REGISTRY/$IMAGE_NAME
+    - docker image ls | grep $IMAGE_NAME
+  tags:
+    - docker
+  only:
+    - branches
+
+.deploy:image: &deploy_base
+  stage: deploy
+  script:
+    - docker build -t $DOCKER_REGISTRY/$IMAGE_NAME:$IMAGE_TAG .
+    - docker push $DOCKER_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
+  tags:
+    - docker
+
+deploy:head: &deploy_head
+  <<: *deploy_base
+  variables:
+    IMAGE_TAG: HEAD
+  only:
+    - master
+
+deploy:release: &deploy_release
+  <<: *deploy_base
+  variables:
+    IMAGE_TAG: $CI_COMMIT_TAG
+  only:
+    - /^v\d+.\d+.\d+/
+  except:
+    - branches
