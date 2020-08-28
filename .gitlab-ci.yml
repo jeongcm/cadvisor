@@ -28,14 +28,14 @@ unit:
   tags:
     - docker
 
-deploy:head: &deploy_head
+deploy:head:
   <<: *deploy_base
   variables:
     IMAGE_TAG: HEAD
   only:
     - master
 
-deploy:release: &deploy_release
+deploy:release:
   <<: *deploy_base
   variables:
     IMAGE_TAG: $CI_COMMIT_TAG
