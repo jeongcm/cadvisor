@@ -7,7 +7,7 @@ networks:
 services:
 
   cadvisor:
-    image: registry.datacommand.co.kr/cadvisor:<tag>
+    image: registry.datacommand.co.kr/cdm-cloud-cadvisor:<tag>
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
