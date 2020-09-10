@@ -1,0 +1,19 @@
+version: '3.7'
+
+networks:
+  mynet:
+    external: true
+
+services:
+
+  cadvisor:
+    image: registry.datacommand.co.kr/cdm-cloud-cadvisor:<tag>
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    networks:
+      - mynet
+    deploy:
+      mode: global

@@ -1,0 +1,1 @@
+FROM registry.datacommand.co.kr/cadvisor:v0.33.0
